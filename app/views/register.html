@@ -1,0 +1,37 @@
+<h1 class="header">
+  Register<br>
+  <small>Enter all required information for registering the account</small>
+</h1>
+<form name="registerForm" ng-submit="register()">
+  <div class="form-group" ng-model="err.first_name"
+       ng-class="{true: 'has-error'}[err.first_name !== undefined && !registerForm.first_name.$dirty]">
+    <label class="control-label">First Name</label>
+    <input name="first_name" class="form-control" type="text" ng-model="user.first_name">
+    <span class="help-block" ng-show="[err.first_name !== undefined]">{{err.first_name}}</span>
+  </div>
+  <div class="form-group" ng-model="err.last_name"
+       ng-class="{true: 'has-error'}[err.last_name !== undefined  && !registerForm.last_name.$dirty]">
+    <label class="control-label">Last Name</label>
+    <input name="last_name" class="form-control" type="text" ng-model="user.last_name">
+    <span class="help-block" ng-show="[err.last_name !== undefined]">{{err.last_name}}</span>
+  </div>
+  <div class="form-group" ng-model="err.email"
+       ng-class="{true: 'has-error'}[err.email !== undefined  && !registerForm.email.$dirty]">
+    <label class="control-label">Email</label>
+    <input name="email" class="form-control" type="text" ng-model="user.email">
+    <span class="help-block" ng-show="[err.email !== undefined]">{{err.email}}</span>
+  </div>
+  <div class="form-group" ng-model="err.password"
+       ng-class="{true: 'has-error'}[err.password !== undefined  && !registerForm.password.$dirty]">
+    <label class="control-label">Password</label>
+    <input name="password" class="form-control" type="password" ng-model="user.password">
+    <span class="help-block" ng-show="[err.password !== undefined]">{{err.password}}</span>
+  </div>
+  <div class="form-group" ng-model="err.confirm_password"
+       ng-class="{true: 'has-error'}[err.confirm_password !== undefined  && !registerForm.confirm_password.$dirty]">
+    <label class="control-label">Confirm Password</label>
+    <input name="confirm_password" class="form-control" type="password" ng-model="user.confirm_password">
+    <span class="help-block" ng-show="[err.confirm_password !== undefined]">{{err.confirm_password}}</span>
+  </div>
+  <button class="btn btn-lg" type="submit"> Submit </button>
+</form>
