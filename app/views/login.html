@@ -1,0 +1,27 @@
+<div ng-init="logo = true;" ng-include src=" 'views/header.html' "></div>
+<div class="container">
+  <h1>Login</h1>
+  <p>
+    For authorized Users only. If you have account with Professional system, enter your credentials below. If not, use register button to create an account.
+  </p>
+  <p class="bg-danger" ng-show="err == true" style="padding: 1em;">
+    Your userid or password is incorrect. Correct the information and try again.
+  </p>
+  <form name="loginForm" ng-init="authInfo = {}" ng-submit="login()">
+    <div class="form-group">
+      <label class="control-label">Email</label>
+      <input class="form-control" type="email" ng-model="authInfo.email">
+    </div>
+    <div class="form-group">
+      <label class="control-label">password</label>
+      <input class="form-control" type="password" ng-model="authInfo.password">
+    </div>
+    <div style="width: 100%;">
+      <a class="pull-left" ng-href="#/register">Register Account</a>
+      <button class="btn btn-primary pull-right" type="submit">
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+
