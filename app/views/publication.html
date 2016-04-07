@@ -1,0 +1,40 @@
+<div class="container" ng-controller="PublicationCtrl">
+  <h3>
+    Manage Publication(s)
+    <span>
+      <button class="btn btn-md btn-primary" ng-click="loadAddPublication()">ADD PUBLICATION</button>
+    </span>
+  </h3>
+    <p>
+      You can manage list of your publications here. To add new publication to your
+      list, simply click on "ADD PUBLICATION" button. You may delete or update the publication
+      by choosing the delete or edit button associated the publication item in the list.
+    </p>
+  <hr>
+
+  <div ng-show="publicationCount === 0">
+    <h1 class="text-center text-muted">
+      Zero publications found in your profile. To add new publication to your profile
+      click on "ADD PUBLICATION" button.
+    </h1>
+  </div>
+  <div ng-show="publicationCount > 0">
+    <ol>
+      <div class="row" ng-repeat="pub in publications">
+        <li class="col-lg-8">
+          <p>
+            <b>{{ pub.authors }}</b>, <em>"{{ pub.title }}"</em> - {{ pub.location }},
+            pp.{{pub.startPage}}-{{pub.endPage}}, {{ pub.month }}, {{ pub.year }}
+          </p>
+        </li>
+        <div class="col-lg-2">
+          <a href ng-click="editPublication(pub.id)"><i class="glyphicon glyphicon-edit">Edit</i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href ng-click="deletePublication(pub.id)"><i class="glyphicon glyphicon-trash">Delete</i></a>
+        </div>
+      </div>
+    </ol>
+  </div>
+</div>
+

@@ -1,0 +1,60 @@
+<div ng-controller="AddpublicationCtrl">
+  <h3>
+    Add Publication<br>
+    <small>Complete the publication form information and submit it</small>
+  </h3>
+  <hr>
+
+  <form name="addpublicationform" ng-submit="addPublication()">
+    <input style="display: none;" ng-model="publication.id" ng-init="publication.id=0"/>
+    <div class="form-group" ng-class="{true: 'has-error'}[err.authors && !addpublicationform.authors.$dirty]">
+      <label class="control-label">Author(s)</label>
+      <input name="authors" class="form-control" type="text" ng-model="publication.authors">
+      <span class="help-block" ng-show="[err.authors]">{{err.authors}}</span>
+    </div>
+    <div class="form-group" ng-class="{true: 'has-error'}[err.title && !addpublicationform.title.$dirty]">
+      <label class="control-label">Title</label>
+      <input name="title" class="form-control" type="text" ng-model="publication.title">
+      <span class="help-block" ng-show="[err.title]">{{err.title}}</span>
+    </div>
+    <div class="form-group" ng-class="{true: 'has-error'}[err.location && !addpublicationform.location.$dirty]">
+      <label class="control-label">Journal or Conference(Include City, State and Country)</label>
+      <input name="location" class="form-control" type="text" ng-model="publication.location">
+      <span class="help-block" ng-show="[err.location]">{{err.location}}</span>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="form-group" ng-class="{true: 'has-error'}[err.start_page && !addpublicationform.start_page.$dirty]">
+          <label class="control-label">Starting Page Number</label>
+          <input name="start_page" class="form-control" type="number" ng-model="publication.startPage">
+          <span class="help-block" ng-show="[err.start_page]">{{err.start_page}}</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="form-group" ng-class="{true: 'has-error'}[err.end_page && !addpublicationform.end_page.$dirty]">
+          <label class="control-label">Ending Page Number</label>
+          <input name="end_page" class="form-control" type="number" ng-model="publication.endPage">
+          <span class="help-block" ng-show="[err.end_page]">{{err.end_page}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="form-group" ng-class="{true: 'has-error'}[err.month && !addpublicationform.month.$dirty]">
+          <label class="control-label">Publication Month(Jan, Feb, ... etc)</label>
+          <input name="month" class="form-control" type="text" ng-model="publication.month">
+          <span class="help-block" ng-show="[err.month]">{{err.month}}</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="form-group" ng-class="{true: 'has-error'}[err.year && !addpublicationform.year.$dirty]">
+          <label class="control-label">Year(1980, 2011, ...etc.)</label>
+          <input name="year" class="form-control" type="number" ng-model="publication.year">
+          <span class="help-block" ng-show="[err.year]">{{err.year}}</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn-primary btn btn-lg pull-right" type="submit">Submit</button>
+  </form>
+</div>
+

@@ -1,7 +1,7 @@
-<div id="wrapper">
+<div id="wrapper" ng-controller="DashboardCtrl">
 
   <!-- Sidebar -->
-  <div id="sidebar-wrapper">
+  <div id="sidebar-wrapper" ng-model="curTemplate">
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
         <a href="#">
@@ -9,26 +9,17 @@
                style="margin-top: 2em; width: 80%;padding-left: 15%;">
         </a>
       </li>
+    </ul>
+    <div style="margin-top: 120px;">
+      <ul ng-repeat="template in templates">
+        <li>
+          <a href ng-click="setTemplate($index)">{{template.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <ul>
       <li>
-        <a href="#">Dashboard</a>
-      </li>
-      <li>
-        <a href="#">Biography</a>
-      </li>
-      <li>
-        <a href="#">Contact Info</a>
-      </li>
-      <li>
-        <a href="#">Research Papers</a>
-      </li>
-      <li>
-        <a href="#">Projects</a>
-      </li>
-      <li>
-        <a href="#">Courses</a>
-      </li>
-      <li>
-        <a href="#">Projects</a>
+        <a href ng-click="logout()">Logout</a>
       </li>
     </ul>
   </div>
@@ -37,12 +28,8 @@
   <!-- Page Content -->
   <div ng-init="logo = false;" ng-include src="'views/header.html'"></div>
   <div class="container">
-    <h1>
-      Dashboard<br>
-      <small>
-        Manage all your profile data here. Chose the data object you want to manage using
-      sidebar menu
-      </small>
-    </h1>
+    <div class="slide-animate-container">
+      <div class="slide-animate" ng-include="curTemplate.url"></div>
+    </div>
   </div>
 </div>

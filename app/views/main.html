@@ -1,26 +1,38 @@
 <div ng-init="logo = true;" ng-include src="'views/header.html'"></div>
-<div class="container">
-  <div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-  </div>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <h1 class="text-muted">
+          Welcome to professional connection point. To join our community, click <b class="text-success">REGISTER</b>.
+        </h1>
+      </div>
+      <div class="col-lg-3">
+        <p class="lead">
+          <img src="images/professional.png" alt="I'm Professional" style="height: 200px;"><br>
+        </p>
+        <p>
+          <a class="btn btn-lg btn-success" ng-href="#/register">
+            Register<span class="glyphicon glyphicon-ok"></span>
+          </a>
+        </p>
+      </div>
+    </div>
 
-  <div class="row marketing">
-    <h4>HTML5 Boilerplate</h4>
-    <p>
-      HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-    </p>
-
-    <h4>Angular</h4>
-    <p>
-      AngularJS is a toolset for building the framework most suited to your application development.
-    </p>
-
-    <h4>Karma</h4>
-    <p>Spectacular Test Runner for JavaScript.</p>
   </div>
 </div>
+
+<div class="container search">
+  <form class="form-horizontal" name="searchform" ng-submit="search()">
+    <div class="form-group">
+      <label for="inputsearch" class="col-sm-2 control-label">Search</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="inputsearch" placeholder="John, Doe">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+

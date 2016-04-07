@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('RegisterCtrl', function ($scope, $http, $location) {
+  .controller('RegisterCtrl', function ($scope, $http, $location, $cookieStore) {
 
       $scope.register = function(){
         console.log($scope.user);
@@ -22,7 +22,9 @@ angular.module('clientApp')
             }
           })
           .success(function(data, status){
-            $location.path("/dashboard");
+            $cookieStore.put('user', data);
+            $http.defaults.headers.common['X-AUTH-TOKEN'] = data.token;
+            $location.path("dashboard");
           })
       }
   });
