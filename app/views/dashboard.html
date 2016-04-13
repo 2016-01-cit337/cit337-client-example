@@ -1,4 +1,4 @@
-<div id="wrapper" ng-controller="DashboardCtrl">
+<div id="wrapper" ng-model="manage">
 
   <!-- Sidebar -->
   <div id="sidebar-wrapper" ng-model="curTemplate">
@@ -10,26 +10,31 @@
         </a>
       </li>
     </ul>
-    <div style="margin-top: 120px;">
-      <ul ng-repeat="template in templates">
+
+    <div class="sidebar-nav">
+      <div style="margin-top: 120px;">
+        <ul ng-repeat="template in templates">
+          <li>
+            <a href ng-click="setTemplate($index)">{{template.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <ul>
         <li>
-          <a href ng-click="setTemplate($index)">{{template.name}}</a>
+          <a href ng-click="logout()">Logout</a>
         </li>
       </ul>
     </div>
-    <ul>
-      <li>
-        <a href ng-click="logout()">Logout</a>
-      </li>
-    </ul>
   </div>
-  <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
   <div ng-init="logo = false;" ng-include src="'views/header.html'"></div>
   <div class="container">
     <div class="slide-animate-container">
-      <div class="slide-animate" ng-include="curTemplate.url"></div>
+      <div class="slide" ng-include="curTemplate.url">
+      </div>
     </div>
   </div>
+
 </div>
+

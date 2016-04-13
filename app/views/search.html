@@ -1,0 +1,36 @@
+<div class="container search" ng-controller="SearchCtrl">
+  <form class="form-horizontal" name="searchform" ng-submit="search()">
+    <div class="form-group">
+      <label for="inputsearch" class="col-sm-2 control-label">Search</label>
+      <div class="col-sm-8">
+        <input type="text" ng-model = "search_string" class="form-control" id="inputsearch" placeholder="John, Doe">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="container" ng-show="professionals.length > 0">
+    <div class="row">
+      <div class="col-md-6" ng-repeat="professional in professionals">
+        <div class="well well-sm">
+          <div class="media">
+            <a class="thumbnail pull-left" href="#">
+              <img class="media-object" src="images/user.png">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{professional.first_name}}, {{professional.last_name}} </h4>
+              <p><span class="label label-info">10 publications</span> <span class="label label-primary">89 studenrs</span></p>
+              <p>
+                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+                <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

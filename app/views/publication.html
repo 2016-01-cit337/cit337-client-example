@@ -1,15 +1,15 @@
 <div class="container" ng-controller="PublicationCtrl">
   <h3>
     Manage Publication(s)
-    <span>
+    <span class="pull-right">
       <button class="btn btn-md btn-primary" ng-click="loadAddPublication()">ADD PUBLICATION</button>
     </span>
   </h3>
-    <p>
-      You can manage list of your publications here. To add new publication to your
-      list, simply click on "ADD PUBLICATION" button. You may delete or update the publication
-      by choosing the delete or edit button associated the publication item in the list.
-    </p>
+  <p>
+    You can manage list of your publications here. To add new publication to your
+    list, simply click on "ADD PUBLICATION" button. You may delete or update the publication
+    by choosing the delete or edit button associated the publication item in the list.
+  </p>
   <hr>
 
   <div ng-show="publicationCount === 0">
@@ -28,7 +28,7 @@
           </p>
         </li>
         <div class="col-lg-2">
-          <a href ng-click="editPublication(pub.id)"><i class="glyphicon glyphicon-edit">Edit</i></a>
+          <a href ng-click="editPublication(pub.id)" class="pull-right"><i class="glyphicon glyphicon-edit">Edit</i></a>
         </div>
         <div class="col-lg-2">
           <a href ng-click="deletePublication(pub.id)"><i class="glyphicon glyphicon-trash">Delete</i></a>
@@ -37,4 +37,3 @@
     </ol>
   </div>
 </div>
-

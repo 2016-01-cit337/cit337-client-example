@@ -8,8 +8,9 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('AddpublicationCtrl', function ($scope, $log, $cookieStore, $http, appService) {
+  .controller('AddpublicationCtrl', function ($scope, $http, $log, $cookieStore, appService) {
     // Some form and model variables
+    var publication = {};
     var err = undefined;
 
     $scope.addPublication = function(){

@@ -8,15 +8,19 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('PublicationCtrl', function ($scope, $http, $log, $location, appService) {
-    $scope.publicationCount = 0;
+  .controller('PublicationCtrl', function ($scope, $http, $log, $cookieStore, appService) {
 
-    $scope.getPublications = function () {
-      $http.get('api/getallpublications', null).success(getPublicationSuccess).error(getPublicationError);
+    $scope.loadAddPublication = function () {
+      $scope.$emit('changeDashboardView', { id: 6, name: 'Add Publication', url: 'views/addpublication.html'});
     };
 
-    $scope.deletePublication = function(pub_id){
-      $http.get('api/deletepublication?id=' + pub_id, null)
+    $scope.editPublication = function (id) {
+      appService.setEditId(id);
+      $scope.$emit('changeDashboardView', {id: 0, name: 'Edit Publication', url: 'views/addpublication.html'});
+    };
+
+    $scope.deletePublication = function (id) {
+      $http.get('api/deletepublication?id=' + id, null)
         .success(function (data, status) {
           $scope.getPublications();
         }).error(function (data, status) {
@@ -24,9 +28,11 @@ angular.module('clientApp')
       });
     };
 
-    $scope.editPublication = function (pub_id) {
-      appService.setEditId(pub_id)
-      $scope.$emit('changeDashboardView', {id: -1, name: 'Add Publications', url: 'views/addpublication.html'});
+    $scope.publicationCount = 0;
+
+    $scope.getPublications = function () {
+      $http.get('api/getallpublications',null)
+        .success(getPublicationSuccess).error(getPublicationError);
     };
 
     var getPublicationSuccess = function (data, status) {
@@ -40,8 +46,10 @@ angular.module('clientApp')
     };
 
     $scope.loadAddPublication = function () {
-      $scope.$emit('changeDashboardView', {id: -1, name: 'Add Publication', url: 'views/addpublication.html'});
+      $scope.$emit('changeDashboardView', {id: -1, name: 'Add Publication',
+        url: 'views/addpublication.html'});
     };
 
     $scope.getPublications();
+
   });

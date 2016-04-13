@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="#/" ng-show="logo == true">
+          <a ng-show="logo == true" class="navbar-brand" href="#/">
             <img class="img-responsive" src="images/logo.png" style="margin-top: -15px;">
           </a>
         </div>
@@ -20,11 +20,10 @@
         <div class="collapse navbar-collapse pull-right" id="js-navbar-collapse">
 
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#/">Home</a></li>
-            <li><a ng-href="#/about">About</a></li>
-            <li><a ng-href="#/">Contact</a></li>
-            <li ng-show="!user"><a ng-href="#/login">Login</a></li>
-            <li ng-show="user"><a ng-href="#/dashboard">Dashboard</a></li>
+            <li ng-repeat="link in links" ng-class="{active: $index==selected}"
+                ng-show="{{link.cond}}" ng-click="select($index)">
+              <a ng-href="{{link.url}}">{{link.name}}</a>
+            </li>
           </ul>
         </div>
       </div>

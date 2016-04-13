@@ -1,10 +1,10 @@
-<div ng-init="logo = true;" ng-include src="'views/header.html'"></div>
+<div ng-include src=" 'views/header.html' "></div>
 <div class="container">
   <h1 class="header">
     Register<br>
     <small>Enter all required information for registering the account</small>
   </h1>
-  <form name="registerForm" ng-init="user = {}" ng-submit="register()">
+  <form name="registerForm" mg-model="user={}" ng-submit="register()">
     <div class="form-group" ng-model="err.first_name"
          ng-class="{true: 'has-error'}[err.first_name && !registerForm.first_name.$dirty]">
       <label class="control-label">First Name</label>
@@ -12,29 +12,32 @@
       <span class="help-block" ng-show="[err.first_name]">{{err.first_name}}</span>
     </div>
     <div class="form-group" ng-model="err.last_name"
-         ng-class="{true: 'has-error'}[err.last_name  && !registerForm.last_name.$dirty]">
+         ng-class="{true: 'has-error'}[err.last_name && !registerForm.last_name.$dirty]">
       <label class="control-label">Last Name</label>
       <input name="last_name" class="form-control" type="text" ng-model="user.last_name">
       <span class="help-block" ng-show="[err.last_name]">{{err.last_name}}</span>
     </div>
     <div class="form-group" ng-model="err.email"
-         ng-class="{true: 'has-error'}[err.email  && !registerForm.email.$dirty]">
+         ng-class="{true: 'has-error'}[err.email && !registerForm.email.$dirty]">
       <label class="control-label">Email</label>
       <input name="email" class="form-control" type="text" ng-model="user.email">
       <span class="help-block" ng-show="[err.email]">{{err.email}}</span>
     </div>
     <div class="form-group" ng-model="err.password"
-         ng-class="{true: 'has-error'}[err.password  && !registerForm.password.$dirty]">
+         ng-class="{true: 'has-error'}[err.password && !registerForm.password.$dirty]">
       <label class="control-label">Password</label>
       <input name="password" class="form-control" type="password" ng-model="user.password">
       <span class="help-block" ng-show="[err.password]">{{err.password}}</span>
     </div>
     <div class="form-group" ng-model="err.confirm_password"
-         ng-class="{true: 'has-error'}[err.confirm_password  && !registerForm.confirm_password.$dirty]">
+         ng-class="{true: 'has-error'}[err.confirm_password && !registerForm.confirm_password.$dirty]">
       <label class="control-label">Confirm Password</label>
       <input name="confirm_password" class="form-control" type="password" ng-model="user.confirm_password">
       <span class="help-block" ng-show="[err.confirm_password]">{{err.confirm_password}}</span>
     </div>
-    <button class="btn btn-lg" type="submit"> Submit </button>
+    <div style="width: 100%;">
+      <a class="pull-left" ng-href="#/login">Have an account? Login</a>
+      <button class="btn btn-primary pull-right" type="submit">Register</button>
+    </div>
   </form>
 </div>

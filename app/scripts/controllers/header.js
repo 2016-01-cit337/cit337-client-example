@@ -8,19 +8,19 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('HeaderCtrl', function ($scope, $http, $cookieStore, $location) {
+  .controller('HeaderCtrl', function ($scope, $log, $cookieStore, $location, appService) {
     $scope.user = $cookieStore.get('user');
-    console.log($scope.user);
 
-    $scope.logout = function () {
-      console.log(arguments);
-      $http.get('/api/logout?id=' + $scope.user.id, null).success(logoutSuccess).error(logoutSuccess);
-    }
+    $scope.links=[
+      {name: "Home", url:"#/", cond: true},
+      {name: "About", url:"#/about", cond: true},
+      {name: "Contact", url:"#/contact", cond: true},
+      {name: "Dashboard", url:"#/dashboard", cond: "user"},
+      {name: "Login", url:"#/login", cond: "!user"}
+    ];
 
-    var logoutSuccess = function (data, status) {
-      $http.defaults.headers.common['X-AUTH-TOKEN'] = '';
-      $cookieStore.remove('user');
-      $scope.user = null;
-      $location.path("")
-    }
+    $scope.selected = appService.getActiveIndex();
+    $scope.select = function (index) {
+      appService.setActiveIndex(index);
+    };
   });
