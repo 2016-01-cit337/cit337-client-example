@@ -27,14 +27,14 @@
         <div class="form-group" ng-class="{true: 'has-error'}[err.start_page && !addpublicationform.start_page.$dirty]">
           <label class="control-label">Starting Page Number</label>
           <input name="start_page" class="form-control" type="number" ng-model="publication.startPage">
-          <span class="help-block" ng-show="[err.start_page]">{{err.start_page}}</span>
+          <span class="help-block" ng-show="[err.start_page]">{{err.startPage}}</span>
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-xs-12">
         <div class="form-group" ng-class="{true: 'has-error'}[err.end_page && !addpublicationform.end_page.$dirty]">
           <label class="control-label">Ending Page Number</label>
           <input name="end_page" class="form-control" type="number" ng-model="publication.endPage">
-          <span class="help-block" ng-show="[err.end_page]">{{err.end_page}}</span>
+          <span class="help-block" ng-show="[err.end_page]">{{err.endPage}}</span>
         </div>
       </div>
     </div>

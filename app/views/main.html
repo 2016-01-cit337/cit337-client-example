@@ -2,9 +2,9 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-lg-9">
-        <h1 class="text-muted">
-          Welcome to professional connection point. To join our community, click <b class="text-success">REGISTER</b>.
+      <div class="col-lg-9" style="padding: 0 50px;">
+        <h1 style="color: #777 !important; font-size: 48px;">
+          Welcome to professional connection point. To join our community, click<br> <b class="text-success">REGISTER</b>.
         </h1>
       </div>
       <div class="col-lg-3">
@@ -22,17 +22,4 @@
   </div>
 </div>
 
-<div class="container search">
-  <form class="form-horizontal" name="searchform" ng-submit="search()">
-    <div class="form-group">
-      <label for="inputsearch" class="col-sm-2 control-label">Search</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="inputsearch" placeholder="John, Doe">
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </div>
-    </div>
-  </form>
-</div>
-
+<div ng-include src=" 'views/search.html' "></div>

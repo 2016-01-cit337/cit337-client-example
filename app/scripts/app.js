@@ -30,6 +30,9 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html'
+      })
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
@@ -41,10 +44,6 @@ angular
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
-      })
-      .when('/publication', {
-        templateUrl: 'views/publication.html',
-        controller: 'PublicationCtrl'
       })
       .otherwise({
         redirectTo: '/'

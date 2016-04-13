@@ -1,37 +1,31 @@
 // bower:scss
 // endbower
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
 body {
   padding: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
+.navbar{
+  min-height: 80px;
+  padding-top: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 0px solid #e5e5e5;
-  margin-bottom: 0px;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* Custom page footer */
@@ -48,31 +42,27 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
+  margin-top: -30px;
+  background-color: #ddd;
   .btn {
     font-size: 21px;
     padding: 14px 24px;
   }
 }
-/* Search */
-.search{
-  label{
-    font-size: 24px;
-  }
-  input{
-    font-size: 16px;
-    height: 44px;
-  }
-  button{
-    height:44px;
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
   }
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 830px;
   }
 
   /* Remove the padding we set earlier */
@@ -92,22 +82,40 @@ body {
   }
 }
 
+/* Search */
+.search{
+  label{
+    font-size: 24px;
+  }
+  input{
+    font-size: 16px;
+    height: 44px;
+  }
+  button{
+    height:44px;
+  }
+}
+
 /*
  * Animation for sidebar container
  */
 .slide-animate-container {
   position:relative;
-  min-height:400px;
-  overflow:hidden;
+  min-height:600px;
 }
 
-.slide-animate {
+.slide{
   padding:0px;
 }
 
-.slide-animate.ng-enter, .slide-animate.ng-leave {
+.slide.ng-enter,
+.slide.ng-leave
+{
+  -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-
   position:absolute;
   top:0;
   left:0;
@@ -117,16 +125,21 @@ body {
   padding:10px;
 }
 
-.slide-animate.ng-enter {
-  top:-50px;
+.slide.ng-enter {
+  left: 100%;
 }
-.slide-animate.ng-enter.ng-enter-active {
-  top:0;
+.slide.ng-enter.ng-enter-active {
+  left: 0;
 }
 
-.slide-animate.ng-leave {
-  top:0;
+.slide.ng-leave {
+  left: 0;
 }
-.slide-animate.ng-leave.ng-leave-active {
-  top:400px;
+.slide.ng-leave.ng-leave-active{
+  left: -100%;
+}
+
+.media>.pull-left {
+  margin-right: 10px;
+  padding-right: 4px;
 }
